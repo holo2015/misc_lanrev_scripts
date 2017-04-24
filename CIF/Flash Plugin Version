@@ -1,0 +1,1 @@
+defaults read "/Library/Internet Plug-Ins/Flash Player.plugin/Contents/Info" CFBundleGetInfoString | sed 's/Adobe Flash Player //'  | sed 's/ Adobe Macromedia Software LLC. All rights reserved//' | cut -d C -f 1

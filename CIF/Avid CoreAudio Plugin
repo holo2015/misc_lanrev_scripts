@@ -1,0 +1,6 @@
+if [[ -e "/Library/Audio/Plug-Ins/HAL/Avid CoreAudio.plugin" ]]; then
+	rm -rf "/Library/Audio/Plug-Ins/HAL/Avid CoreAudio.plugin"
+	echo "Found and Removed"
+else
+	echo "OK"
+fi

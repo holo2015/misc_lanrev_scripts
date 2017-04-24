@@ -1,0 +1,47 @@
+#!/bin/bash
+
+if [[ -d "/Applications/MacKeeper.app" ]]; then
+	d=`date`;
+	echo "MacKeeper Found on ${d}"
+
+	rm -rf /Applications/MacKeeper.app
+
+	rm -rf /Library/Application Support/MacKeeper
+	rm -rf /Library/LaunchDaemons/com.zeobit.MacKeeper.AntiVirus
+	rm -rf /Library/LaunchDaemons/com.zeobit.MacKeeper.plugin.AntiTheft.daemon
+
+
+	for USER_HOME in /Users/*
+  	do
+    	USER_UID=`basename "${USER_HOME}"`
+    	if [ ! "${USER_UID}" = "Shared" ]
+    	then
+			rm -rf "${USER_HOME}"/Library/Application Support/MacKeeper Helper
+
+			rm -rf "${USER_HOME}"/Library/Caches/com.zeobit.MacKeeper
+			rm -rf "${USER_HOME}"/Library/Caches/com.zeobit.MacKeeper
+			rm -rf "${USER_HOME}"/Library/Caches/com.zeobit.MacKeeper.Helper
+			rm -rf "${USER_HOME}"/Library/Caches/com.mackeeper.MacKeeper
+			rm -rf "${USER_HOME}"/Library/Caches/com.mackeeper.MacKeeper.Helper
+
+			rm -rf "${USER_HOME}"/Library/LaunchAgents/com.zeobit.MacKeeper.Helper
+			rm -rf "${USER_HOME}"/Library/LaunchAgents/com.zeobit.MacKeeper.plugin.Backup.agent
+			rm -rf "${USER_HOME}"/Library/LaunchAgents/com.mackeeper.MacKeeper.Helper.plist
+
+			rm -rf "${USER_HOME}"/Library/Preferences/com.zeobit.MacKeeper.plist
+			rm -rf "${USER_HOME}"/Library/Preferences/com.zeobit.MacKeeper.Helper.plist
+			rm -rf "${USER_HOME}"/Library/Preferences/com.mackeeper.MacKeeper.Helper.plist
+			rm -rf "${USER_HOME}"/Library/Preferences/com.mackeeper.MacKeeper.plist
+			rm -rf "${USER_HOME}"/Library/Preferences/.3246584E-0CF8-4153-835D-C7D952862F9D
+		
+			rm -rf "${USER_HOME}"/Library/Logs/MacKeeper.log
+			rm -rf "${USER_HOME}"/Library/Logs/MacKeeper.log.signed
+		
+			rm -rf "${USER_HOME}"/Library/Saved\ Application\ State/com.zeobit.MacKeeper.savedState
+			rm -rf "${USER_HOME}"/Downloads/MacKeeper*
+    	fi
+  	done
+  	
+	rm -rf /private/tmp/com.mackeeper.MacKeeper.Installer.config
+	rm -rf /Library/Preferences/.3FAD0F65-FC6E-4889-B975-B96CBF807B78
+fi

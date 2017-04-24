@@ -1,0 +1,7 @@
+#!/bin/bash
+hwType=$(system_profiler SPHardwareDataType | grep "Book")
+if [[ $hwType != "" ]]; then
+	echo "Mac Laptop"
+else
+	echo "Mac Desktop";	
+fi
