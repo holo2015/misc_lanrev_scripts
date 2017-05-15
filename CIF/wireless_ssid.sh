@@ -1,4 +1,6 @@
 #!/bin/bash
+# based on scripts found at
+# https://apple.stackexchange.com/questions/191879/how-to-find-the-currently-connected-network-service-from-the-command-line
 
 services=$(networksetup -listnetworkserviceorder | grep 'Hardware Port')
 currentservice=""
